@@ -59,6 +59,7 @@ public class CusHttpServletHandlerInterceptor  extends HandlerInterceptorAdapter
 
     @Override
     public boolean preHandle(final HttpServletRequest request, final HttpServletResponse response, final Object handler) {
+
     	String service = request.getParameter("service");
     	service = service == null || service == ""?"unkown":service;
     	String data = request.getParameter("data");

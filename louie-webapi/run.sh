@@ -1,1 +1,1 @@
-mvn jetty:run -Djetty.http.port=9997 -Djava.net.preferIPv4Stack
+mvn jetty:run -Djetty.http.port=8080 -Djava.net.preferIPv4Stack
