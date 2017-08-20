@@ -35,16 +35,33 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>3.0.1</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax.servlet</groupId>-->
+            <!--<artifactId>servlet-api</artifactId>-->
+            <!--<version>3.0.1</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>louie</groupId>
             <artifactId>louie-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
     <build>
@@ -103,27 +120,6 @@
                         </resource>
                     </webResources>
                     <packagingExcludes>WEB-INF/lib/servlet-api-*.jar</packagingExcludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.6.v20170531</version>
-                <configuration>
-                    <!--<contextPath>/</contextPath>-->
-                    <stopKey>stop</stopKey>
-                    <stopPort>8889</stopPort>
-
-                    <scanIntervalSeconds>1</scanIntervalSeconds>
-                    <reload>automatic</reload>
-                    <scanTargetPatterns>
-                        <scanTargetPattern>
-                            <directory>target/classes</directory>
-                            <includes>
-                                <include>**/*</include>
-                            </includes>
-                        </scanTargetPattern>
-                    </scanTargetPatterns>
                 </configuration>
             </plugin>
         </plugins>

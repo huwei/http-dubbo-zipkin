@@ -18,5 +18,5 @@
 		</property>
 	</bean>
 	<import resource="application-dubbo.xml" />
-	<import resource="application-mvc.xml" />	
+	<!--<import resource="application-mvc.xml" />	-->
 </beans>

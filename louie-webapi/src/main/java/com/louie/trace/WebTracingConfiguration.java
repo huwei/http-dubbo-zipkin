@@ -21,13 +21,13 @@ import com.github.kristofa.brave.spring.BraveClientHttpRequestInterceptor;
  */
 // import as the interceptors are annotation with javax.inject and not automatically wired
 @Configuration
-@Import({BraveClientHttpRequestInterceptor.class, CusHttpServletHandlerInterceptor.class})
+@Import({BraveClientHttpRequestInterceptor.class, SpringServletHandlerInterceptor.class})
 public class WebTracingConfiguration extends WebMvcConfigurerAdapter {
 
 
   @Autowired
-  //private ServletHandlerInterceptor serverInterceptor;
-  private CusHttpServletHandlerInterceptor serverInterceptor;
+  private SpringServletHandlerInterceptor serverInterceptor;
+//  private CusHttpServletHandlerInterceptor serverInterceptor;
 
   @Autowired
   private BraveClientHttpRequestInterceptor clientInterceptor;

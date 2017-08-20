@@ -20,7 +20,7 @@ import com.louie.utils.JsonUtils;
  */
 @Lazy
 @Service("order.customer")
-public class OrderService{
+public class OrderService {
 
 	/**
 	 * 订单详情
