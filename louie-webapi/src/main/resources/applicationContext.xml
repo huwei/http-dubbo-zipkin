@@ -18,8 +18,8 @@
 			</list>
 		</property>
 	</bean>
-	
+
+	<context:property-placeholder location="classpath:brave.properties"/>
 	<import resource="application-dubbo.xml" />
-	<!--<import resource="application-mvc.xml" />	-->
 	
 </beans>

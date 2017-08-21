@@ -13,7 +13,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.lang.reflect.Method;
 
 import static com.github.kristofa.brave.internal.Util.checkNotNull;
 
@@ -80,7 +79,9 @@ public class SpringServletHandlerInterceptor extends HandlerInterceptorAdapter {
         if (request.getAttribute(HTTP_SERVER_SPAN_ATTRIBUTE) != null) return true; // already handled
 
         SpringControllerSpanNameProvider spanNameProvider = new SpringControllerSpanNameProvider();
-        spanNameProvider.setMethod((HandlerMethod)handler);
+        if (handler instanceof HandlerMethod) {
+            spanNameProvider.setMethod((HandlerMethod)handler);
+        }
         requestInterceptor.handle(new SpringHttpServerRequestAdapter(new ServletHttpServerRequest(request), spanNameProvider));
         if (maybeAddClientAddressFromRequest != null) {
             maybeAddClientAddressFromRequest.accept(request);

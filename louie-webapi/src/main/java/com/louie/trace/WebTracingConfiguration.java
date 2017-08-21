@@ -27,7 +27,6 @@ public class WebTracingConfiguration extends WebMvcConfigurerAdapter {
 
   @Autowired
   private SpringServletHandlerInterceptor serverInterceptor;
-//  private CusHttpServletHandlerInterceptor serverInterceptor;
 
   @Autowired
   private BraveClientHttpRequestInterceptor clientInterceptor;

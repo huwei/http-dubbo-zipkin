@@ -21,6 +21,10 @@ public class SpringControllerSpanNameProvider implements SpanNameProvider {
 
     @Override
     public String spanName(HttpRequest request) {
+        if (handlerMethod == null) {
+            return request.getUri().getPath();
+        }
+
         String spanName = "";
         RequestMapping requestMapping = handlerMethod.getBeanType().getAnnotation(RequestMapping.class);
         if (requestMapping != null) {
@@ -30,7 +34,6 @@ public class SpringControllerSpanNameProvider implements SpanNameProvider {
         }
 
         RequestMapping methodRequestMapping = handlerMethod.getMethodAnnotation(RequestMapping.class);
-
         if (methodRequestMapping.value().length > 0) {
             spanName = spanName + methodRequestMapping.value()[0];
         }
